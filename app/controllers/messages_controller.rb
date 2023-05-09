@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new #空のMessageモデルのインスタンス情報
     @room = Room.find(params[:room_id]) #paramsに含まれているチャットルームのレコード情報
+    @messages = @room.messages.includes(:user) #N+1問題
   end
 
   def create
