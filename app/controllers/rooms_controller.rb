@@ -17,6 +17,13 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to root_path
+  end
+  #チャットルーム削除後、トップページに遷移する
+
   private
 
   def room_params
