@@ -15,7 +15,7 @@
   <% current_user.rooms.each do |room| %>   <!-- チャットルームは複数作成出来るので、「eachメソッド」を使って全てのチャットルームに対して同じ処理を繰り返し実行 「チャットルーム名を表示する」-->
     <div class="room">
       <div class="room-name">
-        <a href="#"><%= room.name %></a>
+        <%= link_to room.name, room_messages_path(room) %>
       </div>
     </div>
   <% end %>
